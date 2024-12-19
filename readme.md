@@ -140,3 +140,6 @@ npm run build
 - `POST /api/tasks` - Create new task
 - `PUT /api/tasks/:id` - Update task
 - `GET /api/tasks/search` - Search tasks by name
+
+
+#The front end should be running on port 5173 and the backend on port 3000

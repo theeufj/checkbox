@@ -17,7 +17,11 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/migration.sql ./
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/index.html ./
+COPY --from=builder /app/vite.config.ts ./
 
-RUN npm install --production
+RUN npm install
 
-CMD ["npm", "start"]
+# Start both frontend and backend
+CMD npm run dev & npm start
