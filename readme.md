@@ -11,6 +11,8 @@
 ### Should Have Features
 - ✅ Sorting by Due Date and Create Date
 - ✅ Search by Task Name
+- ✅ PostgreSQL Database Integration
+- ✅ RESTful API Backend
 
 ## Design Decisions
 
@@ -38,6 +40,12 @@
   - Due Soon: Due date within 7 days
   - Not Urgent: Due date > 7 days
 
+### 6. Backend Architecture
+- Express.js REST API
+- PostgreSQL database for persistence
+- Environment-based configuration
+- Pagination support for task listing
+
 ## Future Improvements
 
 1. **Performance Optimization**
@@ -58,9 +66,9 @@
    - Responsive design improvements
 
 4. **Data Persistence**
-   - Backend API integration
-   - Local storage fallback
    - Offline support
+   - Caching strategy
+   - Real-time updates
 
 5. **Code Quality**
    - Implement error boundaries
@@ -72,8 +80,63 @@
 - Material-UI (@mui/material)
 - date-fns
 - @mui/x-date-pickers
+- Express.js
+- PostgreSQL
+- cors
+- dotenv
 
 ## Getting Started
-1. Install dependencies: `npm install`
-2. Start development server: `npm run dev`
-3. Build for production: `npm run build`
+
+### Prerequisites
+- Node.js (v14 or higher)
+- Docker and Docker Compose
+- PostgreSQL (if running without Docker)
+
+### Development Setup
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+   - Copy `.env.example` to `.env`
+   - Update database credentials and other configurations
+
+4. Start with Docker:
+```bash
+docker-compose up
+```
+
+OR
+
+Start without Docker:
+```bash
+# Start development server
+npm run dev
+
+# Start backend server
+npm run server
+```
+
+### Testing
+```bash
+npm run test
+```
+
+### Building for Production
+```bash
+npm run build
+```
+
+## API Endpoints
+
+- `GET /api/tasks` - List all tasks (with pagination)
+- `POST /api/tasks` - Create new task
+- `PUT /api/tasks/:id` - Update task
+- `GET /api/tasks/search` - Search tasks by name
