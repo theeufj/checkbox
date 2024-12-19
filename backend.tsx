@@ -4,9 +4,34 @@
 import express from 'express';
 import cors from 'cors';
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-const pool = new Pool(); // Single pool instance
+const pool = new Pool({
+  // Add your database configuration here
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: parseInt(process.env.DB_PORT || '5432'),
+});
+
+// Add database connection verification
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    process.exit(1); // Exit if we can't connect to the database
+  }
+  release();
+  console.log('Successfully connected to database');
+});
+
+// Add error handling for the pool
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(1);
+});
 
 app.use(cors());
 app.use(express.json());
