@@ -15,7 +15,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import { Task, TaskStatus } from '../types/types';
 import TaskEditDialog from './TaskEditDialog';
 import { format } from 'date-fns';
-import React from 'react';  
 
 interface TaskListProps {
   tasks: Task[];

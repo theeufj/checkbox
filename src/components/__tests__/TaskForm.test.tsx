@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import TaskForm from '../TaskForm';
-import React from 'react';
 
 const MockTaskForm = (props: any) => (
   <LocalizationProvider dateAdapter={AdapterDateFns}>

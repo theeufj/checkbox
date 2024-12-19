@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import TaskList from '../TaskList';
-import React from 'react';
 
 const mockTasks = [
   {

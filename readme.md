@@ -63,7 +63,6 @@
    - Offline support
 
 5. **Code Quality**
-   - Add unit tests
    - Implement error boundaries
    - Add loading states
    - Form validation

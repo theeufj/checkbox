@@ -1,7 +1,6 @@
 import { Dialog, DialogTitle, DialogContent } from '@mui/material';
 import TaskForm from './TaskForm';
 import { Task } from '../types/types';
-import React from 'react';
 
 interface TaskEditDialogProps {
   task: Task;

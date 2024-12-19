@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import TaskEditDialog from '../TaskEditDialog';
-import React from 'react';
 
 const MockTaskEditDialog = (props: any) => (
   <LocalizationProvider dateAdapter={AdapterDateFns}>
