@@ -8,6 +8,7 @@ RUN npm install
 
 COPY . .
 RUN npm run build
+RUN npm run build:backend
 
 # Production stage
 FROM node:20-alpine
@@ -20,6 +21,4 @@ COPY --from=builder /app/migration.sql ./
 
 RUN npm install --production
 
-EXPOSE 3000
-
-CMD ["node", "dist/backend.js"]
+CMD ["npm", "start"]
